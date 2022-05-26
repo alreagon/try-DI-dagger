@@ -5,26 +5,26 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.c7_daggerhilt.data.model.GetAllPostsResponseItem
-import com.example.c7_daggerhilt.databinding.ItemContentBinding
+import com.example.c7_dagger.data.model.GetAllCarsResponseItem
+import com.example.c7_dagger.databinding.ItemContentBinding
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<GetAllPostsResponseItem>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<GetAllCarsResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: GetAllPostsResponseItem,
-            newItem: GetAllPostsResponseItem
+            oldItem: GetAllCarsResponseItem,
+            newItem: GetAllCarsResponseItem
         ): Boolean = oldItem.id == newItem.id
 
         override fun areContentsTheSame(
-            oldItem: GetAllPostsResponseItem,
-            newItem: GetAllPostsResponseItem
+            oldItem: GetAllCarsResponseItem,
+            newItem: GetAllCarsResponseItem
         ): Boolean = oldItem.hashCode() == newItem.hashCode()
     }
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitData(value: List<GetAllPostsResponseItem>?) = differ.submitList(value)
+    fun submitData(value: List<GetAllCarsResponseItem>?) = differ.submitList(value)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -40,7 +40,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemContentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: GetAllPostsResponseItem) {
+        fun bind(data: GetAllCarsResponseItem) {
             binding.apply {
                 tvJudul.text = data.name
                 tvPrice.text = data.price.toString()

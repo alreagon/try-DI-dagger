@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.c7_dagger.data.Repository
 import com.example.c7_dagger.data.Resource
-import com.example.c7_dagger.data.model.GetAllPostsResponseItem
+import com.example.c7_dagger.data.model.GetAllCarsResponseItem
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,8 +18,8 @@ class MainActivityViewModel @Inject constructor(
 ) : ViewModel(){
 
 
-    private val _posts = MutableLiveData<Resource<List<GetAllPostsResponseItem>>>()
-    val posts: LiveData<Resource<List<GetAllPostsResponseItem>>>
+    private val _posts = MutableLiveData<Resource<List<GetAllCarsResponseItem>>>()
+    val posts: LiveData<Resource<List<GetAllCarsResponseItem>>>
         get() = _posts
 
     fun getAllPosts(){

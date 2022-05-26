@@ -3,7 +3,7 @@ package com.example.c7_dagger.data.model
 import com.google.gson.annotations.SerializedName
 
 
-data class GetAllPostsResponseItem(
+data class GetAllCarsResponseItem(
     @SerializedName("userId")
     val userId: Int,
     @SerializedName("category")

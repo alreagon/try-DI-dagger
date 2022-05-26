@@ -5,26 +5,30 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.c7_dagger.data.Status
 import com.example.c7_dagger.databinding.ActivityMainBinding
 import com.example.c7_dagger.ui.adapter.MainAdapter
 import com.example.c7_dagger.ui.viewmodel.MainActivityViewModel
 import com.example.c7_dagger.ui.viewmodel.ViewModelFactory
+import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
-    private lateinit var  viewModel : MainActivityViewModel
     private lateinit var progressDialog: ProgressDialog
     private lateinit var adapter: MainAdapter
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
+    private val viewModel: MainActivityViewModel by viewModels{viewModelFactory}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

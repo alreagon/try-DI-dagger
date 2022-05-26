@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">C7-Dagger</string>
+    <string name="app_name_debug">C7-Dagger debug</string>
+    <string name="app_name_release">C7-Dagger release</string>
     <string name="judulnya">judulnya</string>
     <string name="harganya">harganya</string>
 </resources>
